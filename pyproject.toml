@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gcp-gke-security-intelligence"
+version = "0.1.0"
+description = "Read-only, explainable GCP IAM to GKE access-path analysis starter"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+cloud = ["google-cloud-asset>=3.26.0", "google-cloud-container>=2.50.0", "google-cloud-iam>=2.16.0"]
+test = ["pytest>=8.0"]
+
+[project.scripts]
+security-intel = "security_intel.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
